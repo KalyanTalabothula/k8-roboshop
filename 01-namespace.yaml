@@ -1,0 +1,12 @@
+# 🔎 kubernetes namespace yaml
+# labels are used for filteration purpose 
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: roboshop
+  labels:
+    project: roboshop
+    environment: dev
+
+# If you don’t specify metadata.name in the Pod YAML:
+# ✅ Correct answer: B) Kubernetes will auto-generate a random Pod name

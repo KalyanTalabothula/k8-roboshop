@@ -27,7 +27,7 @@ spec:
     spec:
       containers: 
       - name: catalogue
-        image: kalyantalabothula/catalogue:v1 
+        image: kalyantalabothula/catalogue:v1  # Mii Docker hub nimdi pull chesukuntumdhi
 ---
 apiVersion: v1
 kind: Service

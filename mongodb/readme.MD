@@ -32,8 +32,9 @@ mongodb.roboshop.svc.cluster.local:27017
 
 (no need to care about Pod IPs).
 
-3. How Service works?
+---
 
+## 3. How Service works?
 Service uses selectors (labels) to find which Pods to forward traffic to.
 
 selector:
@@ -49,15 +50,12 @@ Example: if tomorrow Pod IP changes → still traffic goes, because labels are s
 4. Service Types (simplified)
 
 ClusterIP (default) → accessible only inside cluster. (Your MongoDB case ✅)
-
 NodePort → makes it accessible from outside using <NodeIP>:<NodePort>.
-
 LoadBalancer → integrates with cloud load balancer (AWS/GCP/Azure).
 
 5. Your Case (MongoDB)
 
 Deployment creates a Pod → MongoDB runs inside.
-
 Service gives a stable IP + DNS name for MongoDB.
 
 So other apps in roboshop project (like catalogue, user, cart, etc.) can always connect using:
@@ -70,7 +68,5 @@ instead of chasing Pod IPs.
 ✅ In short (very simple):
 
 Deployment = creates Pods (apps run here).
-
 Pod IPs = temporary.
-
 Service = permanent IP/DNS to reach those Pods reliably.

@@ -7,4 +7,23 @@ metadata:
     project: roboshop
     environment: database
     app: mongodb
-  
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      project: roboshop
+      environment: database
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        environment: database
+        app: mongodb
+    spec:
+      containers: 
+      - name: mongodb
+        image: kalyantalabothula/mongodb
+        ports:
+        - containerPort: 80
+

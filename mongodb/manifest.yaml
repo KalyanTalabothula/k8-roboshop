@@ -3,10 +3,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: 
   name: mongodb
+  namespace: roboshop
+# deployment labels
   labels:
+    component: mongodb
     project: roboshop
-    environment: database
-    app: mongodb
+    tier: database
 spec:
   replicas: 3
   selector:

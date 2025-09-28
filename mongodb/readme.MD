@@ -24,3 +24,53 @@ Example from your YAML:
 kind: Service
 metadata:
   name: mongodb
+
+👉 So in cluster, apps can always connect using:
+
+mongodb.roboshop.svc.cluster.local:27017
+
+
+(no need to care about Pod IPs).
+
+3. How Service works?
+
+Service uses selectors (labels) to find which Pods to forward traffic to.
+
+selector:
+  component: mongodb
+  project: roboshop
+  tier: database
+
+
+👉 Any Pod with these labels = Service will send traffic there.
+
+Example: if tomorrow Pod IP changes → still traffic goes, because labels are same.
+
+4. Service Types (simplified)
+
+ClusterIP (default) → accessible only inside cluster. (Your MongoDB case ✅)
+
+NodePort → makes it accessible from outside using <NodeIP>:<NodePort>.
+
+LoadBalancer → integrates with cloud load balancer (AWS/GCP/Azure).
+
+5. Your Case (MongoDB)
+
+Deployment creates a Pod → MongoDB runs inside.
+
+Service gives a stable IP + DNS name for MongoDB.
+
+So other apps in roboshop project (like catalogue, user, cart, etc.) can always connect using:
+
+mongodb:27017
+
+
+instead of chasing Pod IPs.
+
+✅ In short (very simple):
+
+Deployment = creates Pods (apps run here).
+
+Pod IPs = temporary.
+
+Service = permanent IP/DNS to reach those Pods reliably.

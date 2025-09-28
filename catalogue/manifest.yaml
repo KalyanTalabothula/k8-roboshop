@@ -40,7 +40,7 @@ spec:
     spec:
       containers: 
       - name: catalogue
-        image: kalyantalabothula/catalogue:v1  # Mii Docker hub nimdi pull chesukuntumdhi
+        image: kalyantalabothula/catalogue:v1  # Mii Docker hub nimdi pull chesukuntumdhi, username,Password Evvakunda ante? --> Public image kabatti it will pull.  
         envFrom: 
         - configMapRef:  # <-- Environments ni configMap resourceses lo catalogue anedi undi akkada nimdi refer chesuko, akkada unne env catalogue dhi. 
             name: catalogue   

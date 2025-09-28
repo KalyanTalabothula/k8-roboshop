@@ -17,6 +17,7 @@ App ki connection cheyyali ante → Pod IP maripothunte, direct ga connect cheyy
 ## 2. Solution = Service
 - **Service** = fixed, permanent IP and DNS name for a set of Pods.  
 - Even if Pods restart / IPs change → Service will automatically route traffic to correct Pods.  
+- Manaki inka mongodb, catalogue tho connect avutmdhi by using the Service resources. 
 
 Example from your YAML:  
 ```yaml

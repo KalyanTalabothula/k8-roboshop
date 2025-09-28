@@ -1,3 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: catalogue
+  namespace: roboshop  # <-- don't forget
+  labels: 
+    component: catalogue
+    project: roboshop
+    tier: app
+data: 
+   MONGO: "true"  # Remove equal symbol(=), and coloun symbol(:)
+   MONGO_URL: "mongodb://mongodb:27017/catalogue" 
+---
 # 🔎 kubernetes Deployment
 apiVersion: apps/v1
 kind: Deployment
@@ -28,6 +41,10 @@ spec:
       containers: 
       - name: catalogue
         image: kalyantalabothula/catalogue:v1  # Mii Docker hub nimdi pull chesukuntumdhi
+        envFrom: 
+        - configMapRef:  # <-- Environments ni configMap resourceses lo catalogue anedi undi akkada nimdi refer chesuko, akkada unne env catalogue dhi. 
+            name: catalogue   
+# manam separate gha kuda configMap manifest.yaml file ni pettukovachhu, but manam GitBash lo everytime manam $ kubectl apply -f configmap.yaml ani evvali. ala evvakunda manam ela chesunnam. mottam okka manifest.yaml lo petti apply chestunnam. 
 ---
 apiVersion: v1
 kind: Service

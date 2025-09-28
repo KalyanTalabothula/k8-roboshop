@@ -44,7 +44,7 @@ spec:
         envFrom: 
         - configMapRef:  # <-- Environments ni configMap resourceses lo catalogue anedi undi akkada nimdi refer chesuko, akkada unne env catalogue dhi. 
             name: catalogue   
-# manam separate gha kuda configMap manifest.yaml file ni pettukovachhu, but manam GitBash lo everytime manam $ kubectl apply -f configmap.yaml ani evvali. ala evvakunda manam ela chesunnam. mottam okka manifest.yaml lo petti apply chestunnam. 
+# manam separate gha kuda configMap manifest.yaml file ni pettukovachhu, but manam GitBash lo everytime manam $ kubectl apply -f configmap.yaml ani evvali. ala evvakunda manam ela chesunnam. mottam okka manifest.yaml lo petti apply chestunnam. Like config.yaml ani, Deployment.yaml ani, service.yaml ani, 
 ---
 apiVersion: v1
 kind: Service

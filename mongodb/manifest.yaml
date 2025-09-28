@@ -27,7 +27,7 @@ spec:
     spec:
       containers: 
       - name: mongodb
-        image: kalyantalabothula/mongodb:v1
+        image: kalyantalabothula/mongodb:v1 # Mii Docker hub nimdi pull chesukuntumdhi
 ---
 apiVersion: v1
 kind: Service

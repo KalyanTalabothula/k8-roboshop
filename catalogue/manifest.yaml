@@ -45,5 +45,5 @@ spec:
     tier: app
   ports:
   - protocol: TCP
-    port: 27017 # service port
-    targetPort: 27017 # container Port 
+    port: 8080 # service port
+    targetPort: 8080 # container Port 

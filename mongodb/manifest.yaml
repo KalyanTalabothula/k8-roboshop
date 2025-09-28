@@ -10,22 +10,26 @@ metadata:
     project: roboshop
     tier: database
 spec:
-  replicas: 3
+  replicas: 1
+# These are the labels replica set use to create pod replicas, this should match pod labels
   selector:
     matchLabels: 
+      component: mongodb
       project: roboshop
-      environment: database
-      app: mongodb
+      tier: database
+# This is pod definition
   template:
     metadata:
       labels:
+        component: mongodb
         project: roboshop
-        environment: database
-        app: mongodb
+        tier: database
     spec:
       containers: 
       - name: mongodb
-        image: kalyantalabothula/mongodb
-        ports:
-        - containerPort: 80
+        image: kalyantalabothula/mongodb:v1
+---
+apiVersion: v1
+kind: Service
+
 

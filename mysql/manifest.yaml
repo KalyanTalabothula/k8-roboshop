@@ -1,6 +1,6 @@
 # 🔎 kubernetes pod screte
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
   name: mysql
   labels:

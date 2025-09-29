@@ -62,7 +62,7 @@ spec:
         - configMapRef:  # <-- Environments ni configMap resourceses lo user anedi undi akkada nimdi refer chesuko, akkada unne env user dhi. 
             name: payment   
 # manam separate gha kuda configMap manifest.yaml file ni pettukovachhu, but manam GitBash lo everytime manam $ kubectl apply -f configmap.yaml ani evvali. ala evvakunda manam ela chesunnam. mottam okka manifest.yaml lo petti apply chestunnam. Like config.yaml ani, Deployment.yaml ani, service.yaml ani, 3 times avvali apply ani. Andhuke manam order lo petti estunnam. 
-        - SecretRef:
+        - secretRef:
             name: payment
 ---
 apiVersion: v1

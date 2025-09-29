@@ -10,7 +10,6 @@ metadata:
 type: Opaque    #--> manam define chestunnam kabatti andhuke Opaque
 data: 
   MYSQL_ROOT_PASSWORD: "   "   # <---
-
 ---
 # 🔎 kubernetes Deployment
 apiVersion: apps/v1
@@ -42,6 +41,9 @@ spec:
       containers: 
       - name: mysql
         image: kalyantalabothula/mysql:v1 # Mii Docker hub nimdi pull chesukuntumdhi
+        envFrom:
+        - secretRef:    # <---
+            name: mysql
 ---
 apiVersion: v1
 kind: Service

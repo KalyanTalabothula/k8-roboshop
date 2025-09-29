@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: debug
+  namespace: roboshop
+spec:
+  containers:
+  - name: debug
+    image: kalyantalabothula/debug:v1
+
+# Mana Namespace loki ee debug POD ane dhi vastumdhi ana mata. 

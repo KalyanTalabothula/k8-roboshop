@@ -42,6 +42,9 @@ spec:
       containers: 
       - name: rabbitmq
         image: rabbitmq:3 # Rabbitmq public image kabatti no need Username
+        envFrom:
+        - secretRef:
+            name: rabbitmq 
 ---
 apiVersion: v1
 kind: Service

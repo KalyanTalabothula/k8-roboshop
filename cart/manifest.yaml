@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cart
+  namespace: roboshop  # <-- don't forget
+  labels: 
+    component: cart
+    project: roboshop
+    tier: app
+data: 
+  REDIS_HOST: "redis"  # Remove equal symbol(=), and coloun symbol(:)
+  CATALOGUE_HOST: "catalogue" 
+  CATALOGUE_PORT: "8080"
+---
+# 🔎 kubernetes Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: cart
+  namespace: roboshop  # edi evvakapote default namespace lo run avutumdhi.
+# deployment labels
+  labels:
+    component: cart
+    project: roboshop
+    tier: app
+spec:
+  replicas: 1
+# These are the labels replica set use to create pod replicas, this should match pod labels
+  selector:
+    matchLabels: 
+      component: cart
+      project: roboshop
+      tier: app
+# This is pod definition
+  template:
+    metadata:
+      labels:
+        component: cart
+        project: roboshop
+        tier: app
+    spec:
+      containers: 
+      - name: cart
+        image: kalyantalabothula/cart:v1  # Mii Docker hub nimdi pull chesukuntumdhi, username,Password Evvakunda ante? --> Public image kabatti it will pull.  
+        envFrom: 
+        - configMapRef:  # <-- Environments ni configMap resourceses lo user anedi undi akkada nimdi refer chesuko, akkada unne env user dhi. 
+            name: cart   
+# manam separate gha kuda configMap manifest.yaml file ni pettukovachhu, but manam GitBash lo everytime manam $ kubectl apply -f configmap.yaml ani evvali. ala evvakunda manam ela chesunnam. mottam okka manifest.yaml lo petti apply chestunnam. Like config.yaml ani, Deployment.yaml ani, service.yaml ani, 3 times avvali apply ani. Andhuke manam order lo petti estunnam. 
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: cart
+  namespace: roboshop   # <--
+  labels:
+    component: cart
+    project: roboshop
+    tier: app
+spec:
+  selector:
+    component: cart
+    project: roboshop
+    tier: app
+  ports:
+  - protocol: TCP
+    port: 8080 # service port
+    targetPort: 8080 # container Port 

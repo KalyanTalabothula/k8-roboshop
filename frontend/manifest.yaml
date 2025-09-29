@@ -137,8 +137,8 @@ spec:
     tier: web
   ports:
   - protocol: TCP
-    port: 80 # service port
-    targetPort: 80 # container Port 
+    port: 80 # service port, Service matram port no 80 pina hit avutmdhi, aa Service vachhesi port no 8080 ki forward chestumdhi ante. 
+    targetPort: 8080 # container Port 
 
 # 🔎 system Port range ---> 0 to 1023
 # The port numbers in the range from 0 to 1023 (0 to 210 − 1) are the well-known ports or system ports. These ports are Reserved for common and widely used services and protocols like HTTP(port 80), HTTPS(port 443), FTP(port 21), and DNS (port 53). They are tpically used by system processes or services. 

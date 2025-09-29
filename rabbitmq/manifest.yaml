@@ -1,3 +1,17 @@
+# 🔎 kubernetes pod screte
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq
+  labels:
+    component: rabbitmq
+    project: roboshop
+    tier: database
+type: Opaque    #--> manam define chestunnam kabatti andhuke Opaque
+data: 
+  RABBITMQ_DEFAULT_USER: "cm9ib3Nob3A="   # "roboshop"
+  RABBITMQ_DEFAULT_PASS: "cm9ib3Nob3AxMjM=" # "roboshop123" # <--- Key: "value" -- double quotes
+---
 # 🔎 kubernetes Deployment
 apiVersion: apps/v1
 kind: Deployment

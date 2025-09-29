@@ -9,7 +9,7 @@ metadata:
     tier: database
 type: Opaque    #--> manam define chestunnam kabatti andhuke Opaque
 data: 
-  MYSQL_ROOT_PASSWORD: "   "   # <---
+  MYSQL_ROOT_PASSWORD: "Um9ib1Nob3BAMQ=="   # <---
 ---
 # 🔎 kubernetes Deployment
 apiVersion: apps/v1

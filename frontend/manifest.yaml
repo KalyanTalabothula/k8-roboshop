@@ -111,13 +111,13 @@ spec:
         # envFrom: 
         # - configMapRef:  
         #     name: frontend  
-    volumes:  # <-- manam volume laga mention chesam, eppudu dhinini manam mount cheyali POD ki. 
-      - name: nginx-conf
-        configMap:
-          name: nginx-conf
-          items:
-            - key: nginx.conf
-              path: nginx.conf
+      volumes:  # <-- manam volume laga mention chesam, eppudu dhinini manam mount cheyali POD ki. 
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf
+            items:
+              - key: nginx.conf
+                path: nginx.conf
 # manam separate gha kuda configMap manifest.yaml file ni pettukovachhu, but manam GitBash lo everytime manam $ kubectl apply -f configmap.yaml ani evvali. ala evvakunda manam ela chesunnam. mottam okka manifest.yaml lo petti apply chestunnam. Like config.yaml ani, Deployment.yaml ani, service.yaml ani, 3 times avvali apply ani. Andhuke manam order lo petti estunnam. 
 ---
 apiVersion: v1

@@ -1,4 +1,4 @@
-# 🔎 kubernetes pod screte
+# 🔎 kubernetes pod secret
 apiVersion: v1
 kind: Secret
 metadata:
